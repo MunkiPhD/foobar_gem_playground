@@ -17,11 +17,15 @@ module Foobar
 				str = []
 				flash.each do |key, messages|
 					messages.each do |message|
-						str << "key: #{key} :: #{message}"
+						str << raw("KK: #{key} :: #{message}")
 					end
 				end
 
 				return str.join('<br/>')
+			end
+
+			def render_test_partial(message)
+				render :partial => "foobar/test_partial", :locals => {:msg => message}
 			end
 		end
 	end
