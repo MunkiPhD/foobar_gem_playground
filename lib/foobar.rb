@@ -5,6 +5,11 @@ module Foobar
 				flash[bucket] ||= []
 				flash[bucket] << message unless message.blank?
 			end
+
+			def flash_me_now(bucket, message)
+				flash.now[bucket] ||= []
+				flash.now[bucket] << message unless message.blank?
+			end
 		end
 
 		module ViewHelpers
@@ -12,7 +17,7 @@ module Foobar
 				str = []
 				flash.each do |key, messages|
 					messages.each do |message|
-						str << message
+						str << "key: #{key} :: #{message}"
 					end
 				end
 
