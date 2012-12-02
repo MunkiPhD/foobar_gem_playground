@@ -1,7 +1,7 @@
 module Foobar
 	module FlashDance
 		module ViewHelpers
-			def render_flash_messages(compact = false)
+			def render_flash_messages(compact = true)
 				str = []
 
 				flash.each do |key, messages|
