@@ -1,4 +1,42 @@
 /*
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
-*/
+.alert {
+  border:1px solid #ccc;
+  padding:20px;
+  margin: 10px;
+}
+
+.alert-success {
+  background-color:rgb(223, 240, 216);
+}
+.alert-info {
+  background-color:rgb(213, 237, 247);
+}
+.alert-warning {
+  background-color:#fcf8e3;
+}
+.alert-error {
+  background-color:#f2dede;
+}
+.alert .close {
+  line-height: 20px;
+  position: relative;
+  right: -5px;
+  top: -2px;
+}
+button.close {
+  background:none repeat scroll 0 0 transparent;
+  border: 0 none;
+  cursor: pointer;
+  padding: 0;
+}
+.close {
+  float:right;
+  color:#000000;
+  font-size:20px;
+  font-weight: bold;
+  opacity:0.2;
+  text-shadow: 0 1px 0 #ffffff;
+}
+  */
