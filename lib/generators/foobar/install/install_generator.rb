@@ -5,7 +5,6 @@ module Foobar
 		class_option :close_buttons, :type => :boolean, :default => true, :desc => "Include close buttons for alert messages. Shouldn't skip this if you're using Twitter's Bootstrap"
 
 		def	generate_partials
-			#copy_file "_error_flash.html.erb", "app/views/flash_dance/_error_flash.html.erb"
 			%w(Success Error Info Warning).each do |default_type|
 				template "default_partial.html.erb", "app/views/flash_dance/_#{default_type.downcase}.html.erb", {:type => default_type}
 

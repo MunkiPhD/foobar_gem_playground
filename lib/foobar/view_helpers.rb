@@ -5,10 +5,15 @@ module Foobar
 				str = []
 
 				flash.each do |key, messages|
+					unless messages.kind_of?(Array)
+							str << render_partial(key, messages)
+							next
+					end
+
 					if compact && messages.length > 1 # if you want it to be compact and there is more than one message in the array, create an unordered list
 						message_elements = []
 						messages.each do |message|
-							message_elements << content_tag(:li, message)
+							message_elements << content_tag(:li, message) # using the content_tag helper ensures that the message will be html safe
 						end
 
 						# we can set temp_message as html_safe because the content_tag helper will handle non-secure text
@@ -23,6 +28,7 @@ module Foobar
 				end
 
 				return raw(str.join)
+
 			end
 
 
@@ -31,7 +37,7 @@ module Foobar
 			# partial_message: the specified name of the partial in the flash_dance directory
 			# message: the message to display in the partial
 			def render_partial(partial_name, message)
-						render(:partial => "flash_dance/#{partial_name}", :locals => {:message => message})
+				render(:partial => "flash_dance/#{partial_name}", :locals => {:message => message})
 			end
 		end
 	end

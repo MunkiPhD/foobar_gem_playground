@@ -5,5 +5,6 @@ class HomeController < ApplicationController
     flash_me_now(:warning,  "<strong>unsafe test</strong>")
     flash_me_now(:warning,  "<script>alert('wtf');</script>not safe")
     flash_me_now(:error,  "<script>alert('wtf');</script>not safe")
+    flash[:error] = "assigned straight"
   end
 end
